@@ -4,13 +4,20 @@
      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      <script>
        function onSubmit(token) {
-         grecaptcha.execute();
+         alert("hello");
        }
+
+       var submit = document.getElementById("submit");
+       submit.addEventListener("click", function(event){
+          event.preventDefault();
+          grecaptcha.execute();
+       })
      </script>
   </head>
   <body>
     <form id='demo-form' action="#" method="POST">
-      <button class="g-recaptcha" data-sitekey="6LcHqnkUAAAAAJ9pm-tQ2455kWk7UPR2fPZ1_LVw" data-callback='onSubmit' data-size="invisible">Submit</button>
+      <div class="g-recaptcha" data-sitekey="6LcHqnkUAAAAAJ9pm-tQ2455kWk7UPR2fPZ1_LVw" data-callback='onSubmit' data-size="invisible"></div>
+      <button id="submit">Submit</button>
       <br/>
     </form>
   </body>
